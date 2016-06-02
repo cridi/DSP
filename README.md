@@ -3,9 +3,12 @@
 ## Goal
 
 Interpolated FIR filter with 3 compontents H1, H2, H3. 
-Fs = 8000 Hz
-L1 = 14
-L2 = 8
+
+![](http://i.imgur.com/Y9e9tyq.jpg)
+
+* Fs = 8000 Hz
+* L1 = 14
+* L2 = 8
 
 ### H1
 
