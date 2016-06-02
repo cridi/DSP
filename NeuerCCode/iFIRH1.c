@@ -9,7 +9,7 @@
 #define FS 72 //Samplerate, 8e3/(L1*L2) 
 
 int main(){
-    int i = 0, z = 0, nsh = 0;
+    int i = 0, z = 0, nsh = 0, h = 0;
     float ns, out, buf[NC*L1*L2];
 
 //Koeffizienten
@@ -38,9 +38,11 @@ z = (z+1) % (NC*L1*L2); //Zeiger inkrementieren und auf Null setzen wenn Ende
 //Neuen Ausgangswert berechnen
 
 out=0;
-
+h = 0;
 for(i = 0; i < NC*L1*L2; i++){
-    if(nsh == 0) out += (b1[i] * buf[(z+i)%NC]); //nur jeden 112ten Wert verrechnen
-    nsh=(nsh+1)%(L1*L2); //ns inkrementieren und auf 0 setzen wenn 112 erreicht wurde. 
+    if(nsh == 0){ 
+        out += (b1[h] * buf[(z+h)%NC]); //nur jeden 112ten Wert verrechnen
+        h++;
+    } nsh=(nsh+1)%(L1*L2); //ns inkrementieren und auf 0 setzen wenn 112 erreicht wurde. 
     }
 }
